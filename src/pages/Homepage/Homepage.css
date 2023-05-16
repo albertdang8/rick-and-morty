@@ -1,0 +1,9 @@
+.home-container{
+    min-height: 100vh;
+    padding: 30px 10px;
+}
+
+.home-container h1{
+    text-align: center;
+    margin-bottom:40px;
+ }
