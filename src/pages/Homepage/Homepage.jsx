@@ -9,11 +9,13 @@ function Homepage() {
 
     useEffect(
         ()=> {
-            console.log('homepage loaded')
             axios.get(`https://rickandmortyapi.com/api/character`)
             .then(res => {
                 console.log(res.data.results)
                 setCharacters(res.data.results)
+            })
+            .catch(error => {
+                console.log("Error: " ,error);
             })
         }, [] //empty array means loads once
     )
