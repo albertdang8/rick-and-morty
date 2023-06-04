@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import CharacterCard from '../../components/CharacterCard/CharacterCard'
-import './Episodes.css'
+import CharacterCard from "../../components/CharacterCard/CharacterCard";
+import "./Episodes.css";
+import { useContext } from "react";
 
 function Episodes() {
+  const { darkMode, setDarkMode } = useContext(ThemeContext);
   const [options, setOptions] = useState([]); //generates select list
   const [selectedOption, setSelectedOption] = useState(1); //dropdown value
   const [selectedEpisode, setSelectedEpisode] = useState(); //complete episode information
@@ -17,8 +19,9 @@ function Episodes() {
       // console.log(res.data)
       setSelectedEpisode(res.data);
 
-      const episodeCharacters = await Promise.all( //iterate through the character list given as endpoints
-        res.data.characters.map(url => {
+      const episodeCharacters = await Promise.all(
+        //iterate through the character list given as endpoints
+        res.data.characters.map((url) => {
           return axios.get(url).then((res) => res.data);
         })
       );
@@ -45,7 +48,7 @@ function Episodes() {
   }, []);
 
   useEffect(() => {
-    fetchEpisodeData()
+    fetchEpisodeData();
   }, [selectedOption]);
 
   const handleSelectChange = (e) => {
@@ -68,9 +71,9 @@ function Episodes() {
           <p>Air date: {selectedEpisode?.air_date}</p>
         </div>
         <div className="character-container">
-          {
-            characterList.map(item => <CharacterCard character={item} key={item.id} />)
-          }
+          {characterList.map((item) => (
+            <CharacterCard character={item} key={item.id} />
+          ))}
         </div>
       </div>
     </div>

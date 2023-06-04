@@ -12,7 +12,7 @@ function Footer() {
     setIsOpen(false);
   };
 
-  const customStyles = {
+  const customStyles = { //Modal styles. dont waste time with a css file i guess
     content: {
       top: "50%",
       left: "50%",
@@ -28,6 +28,7 @@ function Footer() {
     },
   };
 
+  //screen-reader access
   Modal.setAppElement(document.getElementById("root"));
 
   return (
@@ -36,9 +37,9 @@ function Footer() {
         Contact Us
       </button>
       <Modal
-        isOpen={isOpen}
-        onRequestClose={closeSasame}
-        style={customStyles}
+        isOpen={isOpen} //assigned state variable
+        onRequestClose={closeSasame} //esc key or outside click
+        style={customStyles} 
         contentLabel="Contact Us"
       >
         <div className="modal-header">

@@ -3,8 +3,11 @@ import './Homepage.css'
 import axios from 'axios'
 import CharacterCard from '../../components/CharacterCard/CharacterCard'
 import Search from '../../components/Search/Search'
+import { useContext } from 'react'
 
 function Homepage() {
+
+    const {darkMode, setDarkMode} = useContext(ThemeContext);
     //create state for chatacters
     const [characters, setCharacters] = useState([])
 

@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
+import ThemeContextProvider from './contexts/ThemeContext'
 import './App.css'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
@@ -12,6 +13,8 @@ function App() {
 
   return (
     <BrowserRouter>
+    <ThemeContextProvider>
+
       <Header />
 
       <Routes>
@@ -21,8 +24,9 @@ function App() {
         <Route path='/episodes' element={<Episodes />} />
       </Routes>
       
-
       <Footer />
+
+    </ThemeContextProvider>
     </BrowserRouter>
   )
 }
