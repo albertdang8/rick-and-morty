@@ -1,5 +1,4 @@
-import React from "react";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import './Header.css'
@@ -16,7 +15,11 @@ function Header() {
         <Link to="/" style={{marginRight:"10px"}}>Home</Link>
         <Link to="/episodes">Episodes</Link>
       </div>
-      <button className="theme-button" onClick={()=>setDarkMode(!darkMode)}>Dark Mode</button>
+      <button className="theme-button" onClick={()=>setDarkMode(!darkMode)}>
+        {
+          darkMode?"Light Mode" : "Dark Mode"
+        }
+      </button>
     </div>
   );
 }

@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import CharacterCard from "../../components/CharacterCard/CharacterCard";
 import "./Episodes.css";
-import { useContext } from "react";
 
 function Episodes() {
   const { darkMode, setDarkMode } = useContext(ThemeContext);

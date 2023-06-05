@@ -4,6 +4,7 @@ import axios from 'axios'
 import CharacterCard from '../../components/CharacterCard/CharacterCard'
 import Search from '../../components/Search/Search'
 import { useContext } from 'react'
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 function Homepage() {
 
@@ -25,7 +26,7 @@ function Homepage() {
     )
 
   return (
-    <div className="home-container">
+    <div className={darkMode?"home-container home-dark"  :"home-container"}>
         <Search setCharacters={setCharacters}/>
         <h1>Main Characters</h1>
         <div className="characters-container">
