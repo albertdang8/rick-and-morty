@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import CharacterCard from "../../components/CharacterCard/CharacterCard";
 import "./Episodes.css";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 function Episodes() {
   const { darkMode, setDarkMode } = useContext(ThemeContext);
@@ -55,28 +56,30 @@ function Episodes() {
   };
 
   return (
-    <div className="episodes-container">
+    <div className={darkMode?"episodes-container episodes-dark"  :"episodes-container"}>
       <div>
-        <label htmlFor="select-episode">Select an episode: </label>
+        <label htmlFor="select-episode">Select an episode:</label>
         <select id="select-episode" onChange={handleSelectChange}>
-          {options.map((num) => (
+          {
+            options.map(num => 
             <option key={num} value={num}>{`Episode ${num}`}</option>
-          ))}
+            )
+          }
         </select>
       </div>
       <div>
         <div className="episode-info">
           <p>Episode Name: {selectedEpisode?.name}</p>
-          <p>Air date: {selectedEpisode?.air_date}</p>
+          <p>Air Date: {selectedEpisode?.air_date}</p>
         </div>
         <div className="character-container">
-          {characterList.map((item) => (
-            <CharacterCard character={item} key={item.id} />
-          ))}
+          {
+            characterList.map(item => <CharacterCard character={item} key={item.id} />)
+          }
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 export default Episodes;

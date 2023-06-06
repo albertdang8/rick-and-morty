@@ -16,7 +16,7 @@ function Homepage() {
         ()=> {
             axios.get(`https://rickandmortyapi.com/api/character`)
             .then(res => {
-                console.log(res.data.results)
+                // console.log(res.data.results)
                 setCharacters(res.data.results)
             })
             .catch(error => {
