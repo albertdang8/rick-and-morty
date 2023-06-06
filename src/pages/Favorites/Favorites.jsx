@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, { useContext } from 'react'
 import CharacterCard from '../../components/CharacterCard/CharacterCard'
 import { FavoritesContext } from '../../contexts/FavoritesContext'
 import { ThemeContext } from '../../contexts/ThemeContext'
